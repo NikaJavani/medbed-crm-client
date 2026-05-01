@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/index.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1777615885991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1777615885991,
+            "name": "Commit-0",
+            "content": "@import \"tailwindcss\";\n\n@theme {\n  --color-primary-50: #eff6ff;\n  --color-primary-100: #dbeafe;\n  --color-primary-500: #3b82f6;\n  --color-primary-600: #2563eb;\n  --color-primary-700: #1d4ed8;\n  --color-primary-900: #1e3a8a;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  background-color: #f8fafc;\n  color: #1e293b;\n}"
+        }
+    ]
+}
