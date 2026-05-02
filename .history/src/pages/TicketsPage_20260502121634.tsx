@@ -357,12 +357,10 @@ export default function TicketsPage() {
           </tbody>
         </table>
       </div>
-      
       {/* Create Ticket Modal */}
       {showCreateModal && (
         <CreateTicketModal onClose={() => setShowCreateModal(false)} />
       )}
-
       {/* Modal */}
       {selectedTicket && (
         <TicketModal

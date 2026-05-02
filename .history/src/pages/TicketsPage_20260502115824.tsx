@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import api from '../lib/api'
-import { Clock, AlertTriangle, Search, Plus } from 'lucide-react'
+import { Clock, AlertTriangle, Search } from 'lucide-react'
 import CreateTicketModal from '../components/CreateTicketModal'
 
 // ── Types ──────────────────────────────────────────────────
@@ -357,11 +357,6 @@ export default function TicketsPage() {
           </tbody>
         </table>
       </div>
-      
-      {/* Create Ticket Modal */}
-      {showCreateModal && (
-        <CreateTicketModal onClose={() => setShowCreateModal(false)} />
-      )}
 
       {/* Modal */}
       {selectedTicket && (

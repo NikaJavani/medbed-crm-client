@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import api from '../lib/api'
-import { Clock, AlertTriangle, Search, Plus } from 'lucide-react'
+import { Clock, AlertTriangle, Search } from 'lucide-react'
 import CreateTicketModal from '../components/CreateTicketModal'
 
 // ── Types ──────────────────────────────────────────────────
@@ -258,13 +258,6 @@ export default function TicketsPage() {
             {tickets.length} ticket{tickets.length !== 1 ? 's' : ''} found
           </p>
         </div>
-        <button
-          onClick={() => setShowCreateModal(true)}
-          className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
-        >
-          <Plus className="w-4 h-4" />
-          Report Issue
-        </button>
       </div>
 
       {/* Filters */}
@@ -357,11 +350,6 @@ export default function TicketsPage() {
           </tbody>
         </table>
       </div>
-      
-      {/* Create Ticket Modal */}
-      {showCreateModal && (
-        <CreateTicketModal onClose={() => setShowCreateModal(false)} />
-      )}
 
       {/* Modal */}
       {selectedTicket && (
