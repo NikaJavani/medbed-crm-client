@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/components/Layout.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1777699358224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1777699399652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n         <div className=\"p-6 border-b border-primary-700\">\r\n           <div className=\"flex items-center gap-2\">\r\n             <Activity className=\"w-6 h-6 text-blue-300\" />\r\n             <div>\r\n-              <p className=\"font-bold text-sm\">Piyatech CRM</p>\r\n+              <p className=\"font-bold text-sm\">Piyatech</p>\r\n               <p className=\"text-xs text-blue-300\">Service Platform</p>\r\n             </div>\r\n           </div>\r\n         </div>\r\n"
+                }
+            ],
+            "date": 1777699358224,
+            "name": "Commit-0",
+            "content": "import { Outlet, NavLink } from 'react-router-dom'\r\nimport { useAuth } from '../context/AuthContext'\r\nimport {\r\n  LayoutDashboard,\r\n  Ticket,\r\n  BedDouble,\r\n  LogOut,\r\n  Activity,\r\n} from 'lucide-react'\r\n\r\nexport default function Layout() {\r\n  const { user, logout } = useAuth()\r\n\r\n  const isVendorSide =\r\n    user?.role === 'vendor_admin' || user?.role === 'manager'\r\n\r\n  const navItems = [\r\n    ...(isVendorSide\r\n      ? [{ to: '/', icon: LayoutDashboard, label: 'Dashboard' }]\r\n      : []),\r\n    { to: isVendorSide ? '/tickets' : '/', icon: Ticket, label: 'Tickets' },\r\n    { to: '/assets', icon: BedDouble, label: 'Assets' },\r\n  ]\r\n\r\n  const roleLabel: Record<string, string> = {\r\n    vendor_admin: 'Vendor Admin',\r\n    manager: 'Manager',\r\n    technician: 'Technician',\r\n    hospital_admin: 'Hospital Admin',\r\n    hospital_staff: 'Staff',\r\n  }\r\n\r\n  return (\r\n    <div className=\"flex h-screen bg-gray-50\">\r\n      {/* Sidebar */}\r\n      <aside className=\"w-64 bg-primary-900 text-white flex flex-col\">\r\n        {/* Logo */}\r\n        <div className=\"p-6 border-b border-primary-700\">\r\n          <div className=\"flex items-center gap-2\">\r\n            <Activity className=\"w-6 h-6 text-blue-300\" />\r\n            <div>\r\n              <p className=\"font-bold text-sm\">Piyatech CRM</p>\r\n              <p className=\"text-xs text-blue-300\">Service Platform</p>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        {/* Nav */}\r\n        <nav className=\"flex-1 p-4 space-y-1\">\r\n          {navItems.map(({ to, icon: Icon, label }) => (\r\n            <NavLink\r\n              key={label}\r\n              to={to}\r\n              end={to === '/'}\r\n              className={({ isActive }) =>\r\n                `flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${\r\n                  isActive\r\n                    ? 'bg-primary-600 text-white'\r\n                    : 'text-blue-200 hover:bg-primary-700 hover:text-white'\r\n                }`\r\n              }\r\n            >\r\n              <Icon className=\"w-4 h-4\" />\r\n              {label}\r\n            </NavLink>\r\n          ))}\r\n        </nav>\r\n\r\n        {/* User */}\r\n        <div className=\"p-4 border-t border-primary-700\">\r\n          <div className=\"flex items-center justify-between\">\r\n            <div>\r\n              <p className=\"text-sm font-medium\">\r\n                {user?.firstName} {user?.lastName}\r\n              </p>\r\n              <p className=\"text-xs text-blue-300\">\r\n                {roleLabel[user?.role ?? ''] ?? user?.role}\r\n              </p>\r\n            </div>\r\n            <button\r\n              onClick={logout}\r\n              className=\"p-1.5 text-blue-300 hover:text-white rounded transition-colors\"\r\n              title=\"Logout\"\r\n            >\r\n              <LogOut className=\"w-4 h-4\" />\r\n            </button>\r\n          </div>\r\n        </div>\r\n      </aside>\r\n\r\n      {/* Main content */}\r\n      <main className=\"flex-1 overflow-auto\">\r\n        <Outlet />\r\n      </main>\r\n    </div>\r\n  )\r\n}"
+        }
+    ]
+}

@@ -39,7 +39,7 @@ export default function Layout() {
           <div className="flex items-center gap-2">
             <Activity className="w-6 h-6 text-blue-300" />
             <div>
-              <p className="font-bold text-sm">Piyatech</p>
+              <p className="font-bold text-sm">Piyatech CRM</p>
               <p className="text-xs text-blue-300">Service Platform</p>
             </div>
           </div>

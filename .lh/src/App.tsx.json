@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/App.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1777699333099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1777699333099,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'\nimport { useAuth } from './context/AuthContext'\nimport LoginPage from './pages/LoginPage'\nimport DashboardPage from './pages/DashboardPage'\nimport TicketsPage from './pages/TicketsPage'\nimport AssetsPage from './pages/AssetsPage'\nimport Layout from './components/Layout'\n\nconst ProtectedRoute = ({ children }: { children: React.ReactNode }) => {\n  const { isAuthenticated } = useAuth()\n  return isAuthenticated ? <>{children}</> : <Navigate to=\"/login\" />\n}\n\nconst RoleBasedHome = () => {\n  const { user } = useAuth()\n  if (user?.role === 'vendor_admin' || user?.role === 'manager') {\n    return <DashboardPage />\n  }\n  return <TicketsPage />\n}\n\nexport default function App() {\n  const { user } = useAuth()\n\n  const isVendorSide =\n    user?.role === 'vendor_admin' || user?.role === 'manager'\n\n  return (\n    <BrowserRouter>\n      <Routes>\n        <Route path=\"/login\" element={<LoginPage />} />\n        <Route\n          path=\"/\"\n          element={\n            <ProtectedRoute>\n              <Layout />\n            </ProtectedRoute>\n          }\n        >\n          <Route index element={<RoleBasedHome />} />\n          <Route path=\"tickets\" element={<TicketsPage />} />\n          <Route path=\"assets\" element={<AssetsPage />} />\n          {isVendorSide && (\n            <Route path=\"dashboard\" element={<DashboardPage />} />\n          )}\n        </Route>\n      </Routes>\n    </BrowserRouter>\n  )\n}"
+        }
+    ]
+}
