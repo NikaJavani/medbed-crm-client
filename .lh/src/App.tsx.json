@@ -3,11 +3,27 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1777699333099,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1777704536517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n import DashboardPage from './pages/DashboardPage'\n import TicketsPage from './pages/TicketsPage'\n import AssetsPage from './pages/AssetsPage'\n import Layout from './components/Layout'\n+import SignUpPage from './pages/SignUpPage'\n \n const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {\n   const { isAuthenticated } = useAuth()\n   return isAuthenticated ? <>{children}</> : <Navigate to=\"/login\" />\n"
+                },
+                {
+                    "date": 1777704560332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,8 +41,9 @@\n         >\n           <Route index element={<RoleBasedHome />} />\n           <Route path=\"tickets\" element={<TicketsPage />} />\n           <Route path=\"assets\" element={<AssetsPage />} />\n+          <Route path=\"/signup\" element={<SignUpPage />} />\n           {isVendorSide && (\n             <Route path=\"dashboard\" element={<DashboardPage />} />\n           )}\n         </Route>\n"
+                },
+                {
+                    "date": 1777706860921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         >\n           <Route index element={<RoleBasedHome />} />\n           <Route path=\"tickets\" element={<TicketsPage />} />\n           <Route path=\"assets\" element={<AssetsPage />} />\n-          <Route path=\"/signup\" element={<SignUpPage />} />\n+          \n           {isVendorSide && (\n             <Route path=\"dashboard\" element={<DashboardPage />} />\n           )}\n         </Route>\n"
+                },
+                {
+                    "date": 1777706900826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-```typescriptreact\n+\n import React from 'react'\n import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'\n import { useAuth } from './context/AuthContext'\n import LoginPage from './pages/LoginPage'\n"
                 }
             ],
             "date": 1777699333099,

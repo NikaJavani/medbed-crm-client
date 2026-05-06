@@ -44,7 +44,7 @@ export default function App() {
           <Route index element={<RoleBasedHome />} />
           <Route path="tickets" element={<TicketsPage />} />
           <Route path="assets" element={<AssetsPage />} />
-          
+          <Route path="/signup" element={<SignUpPage />} />
           {isVendorSide && (
             <Route path="dashboard" element={<DashboardPage />} />
           )}

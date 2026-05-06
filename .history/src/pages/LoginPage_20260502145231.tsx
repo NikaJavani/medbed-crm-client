@@ -88,7 +88,6 @@ export default function LoginPage() {
             {loading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
-        
         <p className="text-center text-sm text-gray-500 mt-4">
           New client?{' '}
           <a href="/signup" className="text-primary-600 font-medium hover:underline">

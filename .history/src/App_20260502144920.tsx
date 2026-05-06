@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from './context/AuthContext'
@@ -32,7 +31,6 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
         <Route
           path="/"
           element={
@@ -44,7 +42,7 @@ export default function App() {
           <Route index element={<RoleBasedHome />} />
           <Route path="tickets" element={<TicketsPage />} />
           <Route path="assets" element={<AssetsPage />} />
-          
+          <Route path="/signup" element={<SignUpPage />} />
           {isVendorSide && (
             <Route path="dashboard" element={<DashboardPage />} />
           )}

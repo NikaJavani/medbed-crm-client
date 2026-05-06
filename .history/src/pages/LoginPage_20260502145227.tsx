@@ -89,12 +89,6 @@ export default function LoginPage() {
           </button>
         </form>
         
-        <p className="text-center text-sm text-gray-500 mt-4">
-          New client?{' '}
-          <a href="/signup" className="text-primary-600 font-medium hover:underline">
-            Create an account
-          </a>
-        </p>
 
         {/* Quick login hints */}
         <div className="mt-6 p-3 bg-gray-50 rounded-lg">
